@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Dashboard</h2>
+    <p>Welcome, {{ current_user.username }}!</p>
+
+    <div class="dashboard-actions">
+        <a href="/buildings" class="btn btn-primary">Manage Buildings</a>
+        <a href="/evacuation" class="btn btn-secondary">View Evacuation Plans</a>
+    </div>
+
+    {% if buildings %}
+    <div class="recent-buildings">
+        <h3>Your Buildings</h3>
+        <div class="building-list">
+            {% for building in buildings %}
+            <div class="building-item">
+                <h4>{{ building.name }}</h4>
+                <p>{{ building.width }}x{{ building.height }} grid</p>
+                <a href="/map/{{ building.id }}" class="btn btn-sm">Open Map</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <h3>No buildings yet</h3>
+        <p>Create your first building to start planning evacuations</p>
+        <a href="/buildings" class="btn btn-primary">Create Building</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

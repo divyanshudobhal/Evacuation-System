@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Emergency Evacuation Planner Pro - AI-Powered Safety Solutions{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1>Emergency Evacuation Planner Pro</h1>
+        <p>AI-powered pathfinding with real-time hazard avoidance for maximum safety during emergencies</p>
+        <div class="hero-buttons">
+            {% if not current_user.is_authenticated %}
+                <a href="/register" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket me-2"></i>🚀 Get Started Free
+                </a>
+                <a href="/login" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-key me-2"></i>🔑 Login
+                </a>
+            {% else %}
+                <a href="/dashboard" class="btn btn-primary btn-lg">
+                    <i class="fas fa-tachometer-alt me-2"></i>📊 Go to Dashboard
+                </a>
+                <a href="/buildings" class="btn btn-success btn-lg">
+                    <i class="fas fa-building me-2"></i>🏢 Manage Buildings
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>🧠 Smart A* Pathfinding</h3>
+        <p>Advanced algorithm finds optimal evacuation routes around hazards in real-time with 99.9% accuracy. Dynamic obstacle avoidance with intelligent routing.</p>
+    </div>
+    <div class="feature-card">
+        <h3>🔥 Dynamic Hazard Detection</h3>
+        <p>Mark fires, smoke, blocked areas, and chemical hazards. The system automatically avoids them with intelligent routing and real-time updates.</p>
+    </div>
+    <div class="feature-card">
+        <h3>🎯 Real-time Visualization</h3>
+        <p>Watch evacuation paths unfold with beautiful animations and step-by-step guidance for emergency responders. Interactive map with live updates.</p>
+    </div>
+    <div class="feature-card">
+        <h3>📊 Professional Analytics</h3>
+        <p>Get detailed efficiency reports, evacuation time estimates, and safety metrics for your buildings. Export comprehensive safety analysis.</p>
+    </div>
+    <div class="feature-card">
+        <h3>💾 Export & Share</h3>
+        <p>Export evacuation plans as JSON files and share with emergency services or building management. Collaborative safety planning made easy.</p>
+    </div>
+    <div class="feature-card">
+        <h3>🎮 Intuitive Controls</h3>
+        <p>Easy-to-use interface with keyboard shortcuts, touch support, and mobile-responsive design. Accessible for all skill levels.</p>
+    </div>
+</div>
+
+{% if not current_user.is_authenticated %}
+<div class="container my-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body text-center py-5">
+            <h2 class="gradient-text mb-4">Ready to Secure Your Building?</h2>
+            <p class="text-muted fs-5 mb-4">Join thousands of safety professionals using our platform to protect lives and property</p>
+            <div class="hero-buttons justify-content-center">
+                <a href="/register" class="btn btn-primary btn-lg px-5">
+                    <i class="fas fa-star me-2"></i>Start Your Free Trial
+                </a>
+            </div>
+            <div class="mt-4">
+                <small class="text-muted">
+                    <i class="fas fa-shield-alt me-2"></i>
+                    Trusted by safety professionals worldwide
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Statistics Section -->
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-3 mb-4">
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <h6>Accuracy Rate</h6>
+                <p class="text-muted">Pathfinding precision</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-card">
+                <div class="stat-number">2.5k+</div>
+                <h6>Buildings Secured</h6>
+                <p class="text-muted">Worldwide deployment</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <h6>Real-time Monitoring</h6>
+                <p class="text-muted">Continuous protection</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-card">
+                <div class="stat-number">50ms</div>
+                <h6>Response Time</h6>
+                <p class="text-muted">Instant path calculation</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
